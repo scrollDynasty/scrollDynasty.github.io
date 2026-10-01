@@ -4,8 +4,8 @@ import { copyText, nativeShare } from "./share";
 describe("copyText", () => {
   it("copies via the clipboard API", async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
-    await expect(copyText("https://umar.social", writeText)).resolves.toBe("copied");
-    expect(writeText).toHaveBeenCalledWith("https://umar.social");
+    await expect(copyText("https://scrolldynasty.github.io", writeText)).resolves.toBe("copied");
+    expect(writeText).toHaveBeenCalledWith("https://scrolldynasty.github.io");
   });
 
   it("fails when the clipboard API is missing", async () => {
@@ -19,7 +19,7 @@ describe("copyText", () => {
 });
 
 describe("nativeShare", () => {
-  const data = { title: "Umar", url: "https://umar.social" };
+  const data = { title: "Umar", url: "https://scrolldynasty.github.io" };
 
   it("reports unsupported without a share function", async () => {
     await expect(nativeShare(data, undefined)).resolves.toBe("unsupported");

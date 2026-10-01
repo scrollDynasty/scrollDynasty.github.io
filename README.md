@@ -1,4 +1,4 @@
-# umar.social
+# scrolldynasty.github.io
 
 Personal profile page (link-in-bio): avatar with QR code, verified accounts,
 Share and Contacts dialogs, vCard download. Next.js 16 (App Router), React 19,
@@ -47,20 +47,9 @@ lint, static export, then deploy to GitHub Pages
 (https://scrolldynasty.github.io). The workflow passes the Pages URL to the
 build as `SITE_URL`, so canonical links, the OG image, the sitemap and the QR
 code always point at the live address (locally `SITE_URL` defaults to
-https://umar.social).
+https://scrolldynasty.github.io).
 
 Static hosting limits: no custom response headers and no Next.js image
 optimizer, so keep images in `public/` small (avatar ≈ 25 KB JPEG, cover WebP).
 Generated images live at routes ending in `.png` (`/og.png`, `/icon.png`,
 `/apple-icon.png`) because Pages picks the Content-Type from the extension.
-
-### Moving umar.social here
-
-1. Repo **Settings → Pages → Custom domain**: enter `umar.social`.
-2. At the domain registrar, replace the Gravatar records with GitHub Pages ones:
-   `A` records for `@` → 185.199.108.153, 185.199.109.153, 185.199.110.153,
-   185.199.111.153 and `CNAME` `www` → `scrolldynasty.github.io`.
-3. Wait for the DNS check, tick **Enforce HTTPS**, then re-run the workflow
-   (Actions → Deploy to GitHub Pages → Run workflow) so URLs switch to umar.social.
-4. Check the site, `/contact.vcf` and the Telegram link preview, then cancel
-   the Gravatar custom-domain plan.

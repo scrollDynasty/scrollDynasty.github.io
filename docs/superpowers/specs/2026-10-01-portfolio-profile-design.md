@@ -5,7 +5,7 @@ Status: approved in chat, pending written-spec review
 
 ## Goal
 
-Replace the rented Gravatar profile at umar.social with a self-hosted page that
+Replace the rented Gravatar profile with a self-hosted page that
 offers the same structure and features. Independent implementation: own markup,
 styles and icons; no Gravatar code, branding, ads or trackers.
 
@@ -32,7 +32,7 @@ Before writing code, read the relevant guides in `node_modules/next/dist/docs/`
 
 ```ts
 export const profile = {
-  siteUrl: "https://umar.social",
+  siteUrl: "https://scrolldynasty.github.io",
   name: "Umar",
   fullName: "Umar Matyokubov",
   roles: "Full-stack developer / Mobile developer",
@@ -111,5 +111,5 @@ and exposed to Tailwind via `@theme`. Default cover: gradient in theme colors.
 
 ## Deployment (informational)
 
-Deploy to Vercel (or any Node/static host), then point umar.social DNS to it and
-cancel the Gravatar custom-domain plan after the switch is verified.
+Deployed as a static export to GitHub Pages at https://scrolldynasty.github.io
+(see README).

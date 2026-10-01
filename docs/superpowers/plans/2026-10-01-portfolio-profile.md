@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Self-hosted, statically generated one-page profile replacing the rented Gravatar page at umar.social.
+**Goal:** Self-hosted, statically generated one-page profile replacing the rented Gravatar profile page.
 
 **Architecture:** Next.js 16 App Router, every route prerendered at build time. All personal data lives in `src/content/profile.ts`; pure helpers in `src/lib/` (unit-tested with Vitest) feed server components; only the interactive bits (avatar/QR toggle, dialogs, share panel) are client components.
 
@@ -96,7 +96,7 @@ export interface Profile {
 }
 
 export const profile: Profile = {
-  siteUrl: "https://umar.social",
+  siteUrl: "https://scrolldynasty.github.io",
   name: "Umar",
   fullName: "Umar Matyokubov",
   roles: "Full-stack developer / Mobile developer",
@@ -351,8 +351,8 @@ describe("personJsonLd", () => {
       "@context": "https://schema.org",
       "@type": "Person",
       name: "Umar Matyokubov",
-      url: "https://umar.social",
-      image: "https://umar.social/avatar.png",
+      url: "https://scrolldynasty.github.io",
+      image: "https://scrolldynasty.github.io/avatar.png",
       sameAs: profile.accounts.map((a) => a.url),
     });
   });
@@ -381,7 +381,7 @@ import { qrSvg } from "./qr";
 
 describe("qrSvg", () => {
   it("returns a scalable SVG without fixed size", async () => {
-    const svg = await qrSvg("https://umar.social");
+    const svg = await qrSvg("https://scrolldynasty.github.io");
     expect(svg).toMatch(/^<svg[^>]+viewBox="0 0 \d+ \d+"/);
     expect(svg).not.toMatch(/<svg[^>]+width=/);
   });
@@ -463,8 +463,8 @@ import { copyText, nativeShare } from "./share";
 describe("copyText", () => {
   it("copies via the clipboard API", async () => {
     const writeText = vi.fn().mockResolvedValue(undefined);
-    await expect(copyText("https://umar.social", writeText)).resolves.toBe("copied");
-    expect(writeText).toHaveBeenCalledWith("https://umar.social");
+    await expect(copyText("https://scrolldynasty.github.io", writeText)).resolves.toBe("copied");
+    expect(writeText).toHaveBeenCalledWith("https://scrolldynasty.github.io");
   });
 
   it("fails when the clipboard API is missing", async () => {
@@ -478,7 +478,7 @@ describe("copyText", () => {
 });
 
 describe("nativeShare", () => {
-  const data = { title: "Umar", url: "https://umar.social" };
+  const data = { title: "Umar", url: "https://scrolldynasty.github.io" };
 
   it("reports unsupported without a share function", async () => {
     await expect(nativeShare(data, undefined)).resolves.toBe("unsupported");
@@ -1364,7 +1364,7 @@ git commit -m "feat: OG image, favicons, sitemap and robots"
 **Files:**
 - Modify: `README.md`
 
-- [ ] **Step 1: README** — replace with: what the project is, `npm run dev` / `npm test` / `npm run build`, "edit `src/content/profile.ts` to change data; put `public/cover.jpg` and set `cover: "/cover.jpg"` for a cover image", deploy notes (Vercel, point umar.social DNS, then cancel Gravatar custom domain).
+- [ ] **Step 1: README** — replace with: what the project is, `npm run dev` / `npm test` / `npm run build`, "edit `src/content/profile.ts` to change data; put `public/cover.jpg` and set `cover: "/cover.jpg"` for a cover image", deploy notes.
 
 - [ ] **Step 2: Full check** — `npm test && npm run lint && npm run build` all green; every route `○`.
 

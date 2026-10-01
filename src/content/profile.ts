@@ -23,8 +23,8 @@ export interface Profile {
 }
 
 export const profile: Profile = {
-  /** Public origin, set per deployment via SITE_URL (e.g. https://scrolldynasty.github.io). */
-  siteUrl: process.env.SITE_URL ?? "https://umar.social",
+  /** Public origin; CI sets SITE_URL from the GitHub Pages settings. */
+  siteUrl: process.env.SITE_URL ?? "https://scrolldynasty.github.io",
   name: "Umar",
   fullName: "Umar Matyokubov",
   roles: "Full-Stack Engineer · TypeScript, Python",

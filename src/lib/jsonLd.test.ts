@@ -10,8 +10,8 @@ describe("personJsonLd", () => {
       "@context": "https://schema.org",
       "@type": "Person",
       name: "Umar Matyokubov",
-      url: "https://umar.social",
-      image: "https://umar.social/avatar.jpg",
+      url: "https://scrolldynasty.github.io",
+      image: "https://scrolldynasty.github.io/avatar.jpg",
       sameAs: profile.accounts.map((a) => a.url),
     });
   });
