@@ -1,4 +1,7 @@
+import { ContactsList } from "@/components/ContactsList";
+import { Modal } from "@/components/Modal";
 import { ProfileCard } from "@/components/ProfileCard";
+import { SharePanel } from "@/components/SharePanel";
 import { VerifiedAccounts } from "@/components/VerifiedAccounts";
 import { profile } from "@/content/profile";
 import { personJsonLd, serializeJsonLd } from "@/lib/jsonLd";
@@ -13,7 +16,20 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(personJsonLd(profile)) }}
       />
-      <ProfileCard profile={profile} qrSvg={qr} actions={null} />
+      <ProfileCard
+        profile={profile}
+        qrSvg={qr}
+        actions={
+          <>
+            <Modal triggerLabel="Поделиться" title="Поделиться профилем">
+              <SharePanel url={profile.siteUrl} title={profile.name} qrSvg={qr} />
+            </Modal>
+            <Modal triggerLabel="Контакты" title="Контакты">
+              <ContactsList contacts={profile.contacts} />
+            </Modal>
+          </>
+        }
+      />
       <VerifiedAccounts accounts={profile.accounts} />
     </main>
   );
