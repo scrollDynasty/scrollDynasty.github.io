@@ -38,7 +38,7 @@ describe("buildVCard", () => {
     const text = unfold(card);
     expect(text).toContain("N:Matyokubov;Umar;;;\r\n");
     expect(text).toContain("FN:Umar Matyokubov\r\n");
-    expect(text).toContain("ORG:Yeb-Ich\\, strawberry.house\r\n");
+    expect(text).toContain("ORG:Crowe TAC\\, Strawberry House Agro\r\n");
     expect(text).toContain("TEL;TYPE=CELL:+998936744994\r\n");
     expect(text).toContain("EMAIL;TYPE=INTERNET:ymarumar502@gmail.com\r\n");
     expect(text).toContain(

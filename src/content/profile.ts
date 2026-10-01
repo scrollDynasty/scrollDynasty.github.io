@@ -26,13 +26,13 @@ export const profile: Profile = {
   siteUrl: "https://umar.social",
   name: "Umar",
   fullName: "Umar Matyokubov",
-  roles: "Full-stack developer / Mobile developer",
-  companies: "Yeb-Ich, strawberry.house",
-  location: "Uzbekistan/Tashkent",
+  roles: "Full-Stack Engineer · TypeScript, Python",
+  companies: "Crowe TAC, Strawberry House Agro",
+  location: "Tashkent, Uzbekistan",
   address: { locality: "Tashkent", country: "UZ" },
-  bio: "CEO founder Yeb-Ich",
+  bio: "Проектирую и довожу до продакшена B2B-платформы, AI-продукты и интеграции на TypeScript и Python. 2+ года опыта, бэкграунд в кибербезопасности. Открыт к удалённой работе.",
   avatar: { src: "/avatar.png", width: 640, height: 640 },
-  cover: null,
+  cover: "/cover.jpg",
   accounts: [
     {
       kind: "linkedin",

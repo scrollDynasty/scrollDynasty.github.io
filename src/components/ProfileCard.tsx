@@ -15,7 +15,14 @@ export function ProfileCard({ profile, qrSvg, actions }: ProfileCardProps) {
     <section aria-labelledby="profile-name" className="overflow-hidden rounded-2xl bg-card">
       <div className="relative h-28 bg-[linear-gradient(135deg,#3b1d6e_0%,#1f1d47_55%,#5b1166_100%)]">
         {profile.cover && (
-          <Image src={profile.cover} alt="" fill sizes="(min-width: 448px) 416px, 100vw" className="object-cover" />
+          <Image
+            src={profile.cover}
+            alt=""
+            fill
+            sizes="(min-width: 448px) 416px, 100vw"
+            loading="eager"
+            className="object-cover"
+          />
         )}
       </div>
 
@@ -27,9 +34,8 @@ export function ProfileCard({ profile, qrSvg, actions }: ProfileCardProps) {
         <h1 id="profile-name" className="mt-3 text-3xl font-bold">
           {profile.name}
         </h1>
-        <p className="mt-1 text-sm text-muted">
-          {profile.roles}, {profile.companies}
-        </p>
+        <p className="mt-1 text-sm text-muted">{profile.roles}</p>
+        <p className="text-sm text-muted">{profile.companies}</p>
         <p className="text-sm text-muted">{profile.location}</p>
 
         <div className="mt-5 flex items-center gap-3">
