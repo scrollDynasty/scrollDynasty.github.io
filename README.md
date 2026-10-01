@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# umar.social
 
-## Getting Started
+Personal profile page (link-in-bio): avatar with QR code, verified accounts,
+Share and Contacts dialogs, vCard download. Next.js 16 (App Router), React 19,
+Tailwind CSS 4. Every route is prerendered at build time.
 
-First, run the development server:
+## Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm test        # unit tests (Vitest)
+npm run lint
+npm run build   # production build; all routes must be static (○)
+npm start       # serve the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing the profile
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All personal data lives in `src/content/profile.ts` — name, roles, location,
+bio, accounts and contacts. Components, SEO metadata, JSON-LD, the vCard and
+the QR code all read from it.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Avatar:** replace `public/avatar.png` (square, ≥ 512px) and update
+  `avatar.width` / `avatar.height` if the size changes.
+- **Cover image:** put a file in `public/` (e.g. `public/cover.jpg`) and set
+  `cover: "/cover.jpg"`. With `cover: null` a gradient is shown.
+- **Accounts:** supported kinds are `linkedin`, `github`, `telegram`
+  (icons in `src/components/icons.tsx`).
 
-## Learn More
+Email and phone appear only in the Contacts dialog and the vCard — they are
+deliberately kept out of the JSON-LD structured data.
 
-To learn more about Next.js, take a look at the following resources:
+## Project layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/            routes: page, contact.vcf, opengraph-image, icon, apple-icon, sitemap, robots
+  components/     ProfileCard, AvatarQrToggle, VerifiedAccounts, Modal, SharePanel, ContactsList, icons
+  content/        profile.ts — the single source of truth
+  lib/            pure helpers with tests: vcard, jsonLd, qr, share, displayUrl, avatarDataUrl
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploying
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Deploy to Vercel (or any host that runs `next start`).
+2. Point the `umar.social` DNS records to the new host and wait until HTTPS works.
+3. Check `https://umar.social`, `/contact.vcf` and the link preview in Telegram.
+4. Only then cancel the Gravatar custom-domain plan.
