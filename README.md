@@ -23,8 +23,8 @@ the QR code all read from it.
 
 - **Avatar:** replace `public/avatar.png` (square, ≥ 512px) and update
   `avatar.width` / `avatar.height` if the size changes.
-- **Cover image:** put a file in `public/` (e.g. `public/cover.jpg`) and set
-  `cover: "/cover.jpg"`. With `cover: null` a gradient is shown.
+- **Cover image:** put a file in `public/` (e.g. `public/cover.webp`) and set
+  `cover: "/cover.webp"`. With `cover: null` a gradient is shown.
 - **Accounts:** supported kinds are `linkedin`, `github`, `telegram`
   (icons in `src/components/icons.tsx`).
 

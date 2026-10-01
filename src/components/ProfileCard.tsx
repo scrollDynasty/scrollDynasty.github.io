@@ -21,7 +21,8 @@ export function ProfileCard({ profile, qrSvg, actions }: ProfileCardProps) {
             fill
             sizes="(min-width: 672px) 640px, 100vw"
             loading="eager"
-            className="object-cover object-[50%_31%]"
+            fetchPriority="high"
+            className="object-cover object-[50%_40%]"
           />
         )}
       </div>
