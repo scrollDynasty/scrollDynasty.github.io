@@ -23,13 +23,13 @@ export function ContactsList({ contacts }: { contacts: Profile["contacts"] }) {
     },
     {
       icon: <Mail className="size-4" aria-hidden />,
-      label: "Электронная почта",
+      label: "Email",
       value: contacts.email,
       href: `mailto:${contacts.email}`,
     },
     {
       icon: <Phone className="size-4" aria-hidden />,
-      label: "Телефон",
+      label: "Phone",
       value: contacts.phone,
       href: `tel:${contacts.phone}`,
     },
@@ -60,7 +60,7 @@ export function ContactsList({ contacts }: { contacts: Profile["contacts"] }) {
         className="mt-6 flex items-center justify-center gap-2 rounded-md border border-accent/60 px-4 py-2.5 text-sm font-semibold text-accent transition hover:bg-accent/10 focus-visible:outline-2 focus-visible:outline-accent"
       >
         <Download className="size-4" aria-hidden />
-        Добавить в контакты (vCard)
+        Add to contacts (vCard)
       </a>
     </div>
   );

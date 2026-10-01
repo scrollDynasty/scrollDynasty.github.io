@@ -11,7 +11,7 @@ export default async function Home() {
   const qr = await qrSvg(profile.siteUrl);
 
   return (
-    <main className="mx-auto flex w-full max-w-md flex-col gap-4 px-4 py-8 sm:py-12">
+    <main className="mx-auto flex w-full max-w-[672px] flex-col gap-6 px-4 py-8 sm:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(personJsonLd(profile)) }}
@@ -21,10 +21,10 @@ export default async function Home() {
         qrSvg={qr}
         actions={
           <>
-            <Modal triggerLabel="Поделиться" title="Поделиться профилем">
+            <Modal triggerLabel="Share" title="Share profile">
               <SharePanel url={profile.siteUrl} title={profile.name} qrSvg={qr} />
             </Modal>
-            <Modal triggerLabel="Контакты" title="Контакты">
+            <Modal triggerLabel="Contact" title="Contact">
               <ContactsList contacts={profile.contacts} />
             </Modal>
           </>

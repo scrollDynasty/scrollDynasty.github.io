@@ -36,14 +36,14 @@ export function SharePanel({ url, title, qrSvg }: SharePanelProps) {
     <div className="flex flex-col gap-4">
       <span
         role="img"
-        aria-label="QR-код ссылки на профиль"
+        aria-label="QR code linking to this profile"
         className="mx-auto block size-40 rounded-lg bg-white p-2 [&>svg]:size-full"
         dangerouslySetInnerHTML={{ __html: qrSvg }}
       />
 
       <div className="flex gap-2">
         <label htmlFor={inputId} className="sr-only">
-          Ссылка на профиль
+          Profile link
         </label>
         <input
           id={inputId}
@@ -59,13 +59,13 @@ export function SharePanel({ url, title, qrSvg }: SharePanelProps) {
           className="inline-flex items-center gap-1.5 rounded-md border border-accent/60 px-3 py-2 text-sm font-semibold text-accent transition hover:bg-accent/10 focus-visible:outline-2 focus-visible:outline-accent"
         >
           {copyStatus === "copied" ? <Check className="size-4" aria-hidden /> : <Copy className="size-4" aria-hidden />}
-          {copyStatus === "copied" ? "Скопировано" : "Копировать"}
+          {copyStatus === "copied" ? "Copied" : "Copy"}
         </button>
       </div>
 
       <p role="status" className="min-h-4 text-xs text-muted">
-        {copyStatus === "copied" && "Ссылка скопирована."}
-        {copyStatus === "failed" && "Не удалось скопировать — ссылка выделена, скопируйте её вручную."}
+        {copyStatus === "copied" && "Link copied."}
+        {copyStatus === "failed" && "Couldn’t copy automatically — the link is selected, copy it manually."}
       </p>
 
       {shareSupported && (
@@ -75,7 +75,7 @@ export function SharePanel({ url, title, qrSvg }: SharePanelProps) {
           className="inline-flex items-center justify-center gap-2 rounded-md bg-accent-strong px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-strong/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <Share2 className="size-4" aria-hidden />
-          Поделиться через…
+          Share via…
         </button>
       )}
     </div>

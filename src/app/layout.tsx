@@ -5,7 +5,7 @@ import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: profile.name,
     title: profile.name,
     description: profile.bio,
-    locale: "ru_RU",
+    locale: "en_US",
     firstName: profile.name,
   },
   twitter: {
@@ -36,7 +36,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ru" className={`${inter.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} antialiased`}>
       <body className="min-h-dvh font-sans">{children}</body>
     </html>
   );

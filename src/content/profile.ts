@@ -32,7 +32,7 @@ export const profile: Profile = {
   address: { locality: "Tashkent", country: "UZ" },
   bio: "Building B2B platforms & AI products.",
   avatar: { src: "/avatar.png", width: 640, height: 640 },
-  cover: "/avatar.png",
+  cover: "/cover.webp",
   accounts: [
     {
       kind: "linkedin",
