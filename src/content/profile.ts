@@ -30,9 +30,9 @@ export const profile: Profile = {
   companies: "Crowe TAC, Strawberry House Agro",
   location: "Tashkent, Uzbekistan",
   address: { locality: "Tashkent", country: "UZ" },
-  bio: "Проектирую и довожу до продакшена B2B-платформы, AI-продукты и интеграции на TypeScript и Python. 2+ года опыта, бэкграунд в кибербезопасности. Открыт к удалённой работе.",
+  bio: "Building B2B platforms & AI products.",
   avatar: { src: "/avatar.png", width: 640, height: 640 },
-  cover: "/cover.jpg",
+  cover: "/avatar.png",
   accounts: [
     {
       kind: "linkedin",
