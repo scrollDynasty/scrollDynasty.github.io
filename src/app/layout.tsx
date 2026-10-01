@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { profile } from "@/content/profile";
+import { APPLE_ICON, ICON, OG_IMAGE } from "@/lib/metaImages";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,7 +14,12 @@ export const metadata: Metadata = {
   title: `${profile.name} | ${profile.location} | ${profile.companies}`,
   description: profile.bio,
   alternates: { canonical: "/" },
+  icons: {
+    icon: { url: ICON.url, type: "image/png", sizes: `${ICON.size}x${ICON.size}` },
+    apple: { url: APPLE_ICON.url, type: "image/png", sizes: `${APPLE_ICON.size}x${APPLE_ICON.size}` },
+  },
   openGraph: {
+    images: [{ ...OG_IMAGE, type: "image/png" }],
     type: "profile",
     url: "/",
     siteName: profile.name,
@@ -24,6 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    images: [OG_IMAGE],
     title: profile.name,
     description: profile.bio,
   },

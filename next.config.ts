@@ -1,18 +1,11 @@
 import type { NextConfig } from "next";
 
-const securityHeaders = [
-  { key: "X-Content-Type-Options", value: "nosniff" },
-  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  { key: "X-Frame-Options", value: "DENY" },
-  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-];
-
+// Static export for GitHub Pages: no server, so no image optimizer and no custom
+// response headers — images in /public are served as-is and kept small by hand.
 const nextConfig: NextConfig = {
+  output: "export",
+  images: { unoptimized: true },
   reactCompiler: true,
-  poweredByHeader: false,
-  async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
-  },
 };
 
 export default nextConfig;

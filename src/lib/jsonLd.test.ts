@@ -11,7 +11,7 @@ describe("personJsonLd", () => {
       "@type": "Person",
       name: "Umar Matyokubov",
       url: "https://umar.social",
-      image: "https://umar.social/avatar.png",
+      image: "https://umar.social/avatar.jpg",
       sameAs: profile.accounts.map((a) => a.url),
     });
   });

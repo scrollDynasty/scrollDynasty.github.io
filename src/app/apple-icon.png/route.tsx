@@ -1,18 +1,19 @@
 import { ImageResponse } from "next/og";
 import { avatarDataUrl } from "@/lib/avatarDataUrl";
+import { APPLE_ICON } from "@/lib/metaImages";
 
-export const size = { width: 64, height: 64 };
-export const contentType = "image/png";
+export const dynamic = "force-static";
 
-export default async function Icon() {
+// iOS rounds the corners itself, so the image stays square.
+export async function GET() {
   const avatar = await avatarDataUrl();
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={avatar} width={64} height={64} alt="" style={{ borderRadius: 9999 }} />
+        <img src={avatar} width={APPLE_ICON.size} height={APPLE_ICON.size} alt="" />
       </div>
     ),
-    size,
+    { width: APPLE_ICON.size, height: APPLE_ICON.size },
   );
 }

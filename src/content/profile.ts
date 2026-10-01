@@ -23,7 +23,8 @@ export interface Profile {
 }
 
 export const profile: Profile = {
-  siteUrl: "https://umar.social",
+  /** Public origin, set per deployment via SITE_URL (e.g. https://scrolldynasty.github.io). */
+  siteUrl: process.env.SITE_URL ?? "https://umar.social",
   name: "Umar",
   fullName: "Umar Matyokubov",
   roles: "Full-Stack Engineer · TypeScript, Python",
@@ -31,7 +32,7 @@ export const profile: Profile = {
   location: "Tashkent, Uzbekistan",
   address: { locality: "Tashkent", country: "UZ" },
   bio: "Building B2B platforms & AI products.",
-  avatar: { src: "/avatar.png", width: 640, height: 640 },
+  avatar: { src: "/avatar.jpg", width: 512, height: 512 },
   cover: "/cover.webp",
   accounts: [
     {

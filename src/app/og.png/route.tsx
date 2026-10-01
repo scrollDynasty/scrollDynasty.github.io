@@ -1,12 +1,11 @@
 import { ImageResponse } from "next/og";
 import { profile } from "@/content/profile";
 import { avatarDataUrl } from "@/lib/avatarDataUrl";
+import { OG_IMAGE } from "@/lib/metaImages";
 
-export const alt = `${profile.name} — ${profile.roles}`;
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+export const dynamic = "force-static";
 
-export default async function OpengraphImage() {
+export async function GET() {
   const avatar = await avatarDataUrl();
 
   return new ImageResponse(
@@ -32,6 +31,6 @@ export default async function OpengraphImage() {
         </div>
       </div>
     ),
-    size,
+    { width: OG_IMAGE.width, height: OG_IMAGE.height },
   );
 }
