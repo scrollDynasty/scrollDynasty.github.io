@@ -64,14 +64,15 @@ export function SharePanel({ url, title, qrSvg }: SharePanelProps) {
       </div>
 
       <p role="status" className="min-h-4 text-xs text-muted">
-        {copyStatus === "failed" ? "Не удалось скопировать — ссылка выделена, скопируйте её вручную." : ""}
+        {copyStatus === "copied" && "Ссылка скопирована."}
+        {copyStatus === "failed" && "Не удалось скопировать — ссылка выделена, скопируйте её вручную."}
       </p>
 
       {shareSupported && (
         <button
           type="button"
           onClick={handleShare}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-accent/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="inline-flex items-center justify-center gap-2 rounded-md bg-accent-strong px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-strong/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <Share2 className="size-4" aria-hidden />
           Поделиться через…

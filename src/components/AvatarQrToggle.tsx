@@ -32,6 +32,7 @@ export function AvatarQrToggle({ avatar, alt, qrSvg }: AvatarQrToggleProps) {
             width={224}
             height={224}
             sizes="112px"
+            loading="eager"
             fetchPriority="high"
             className="size-full object-cover"
           />
@@ -39,7 +40,6 @@ export function AvatarQrToggle({ avatar, alt, qrSvg }: AvatarQrToggleProps) {
       </div>
       <button
         type="button"
-        aria-pressed={showQr}
         aria-label={showQr ? "Показать фото" : "Показать QR-код"}
         onClick={() => setShowQr((v) => !v)}
         className="absolute -right-1 top-1 grid size-9 place-items-center rounded-full border border-white/30 bg-black/60 text-white backdrop-blur transition hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"

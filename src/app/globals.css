@@ -7,6 +7,8 @@
   --fg: #ffffff;
   --muted: #b8b3d9;
   --accent: #e33cf0;
+  /* Filled buttons with white text: 5.9:1 contrast (accent itself is only 3.4:1). */
+  --accent-strong: #a81fb5;
   --verified: #7b6cf6;
 }
 
@@ -17,6 +19,7 @@
   --color-fg: var(--fg);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
   --color-verified: var(--verified);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
